@@ -9,41 +9,57 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+// import Home from 'containers/HomePage/components/Home';
+// import Welcome from 'containers/HomePage/components/Welcome';
+// import Strategy from 'containers/HomePage/components/Strategy';
+// import Services from 'containers/HomePage/components/Services';
+// import FeaturePage from 'containers/FeaturePage/Loadable';
+// import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
+const NoMatch = ({ location }) => (
+  <div>
+    {/* <img src={PageNotFound} style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} /> */}
+    <center>
+      <h1>404 Error: Page Not Found</h1>
+      <h1>:o</h1>
+      <h2>Oops, this page doesn&#39;t exist!</h2>
+      <h3>
+        Maybe we&#39;ll make it one day, but for now try{' '}
+        <Link to="/">returning to our Home Page</Link>.
+      </h3>
+    </center>
+  </div>
+);
+
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
+  max-width: 100vw;
+  margin: 0 0;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  padding: 0 0;
   flex-direction: column;
 `;
 
 export default function App() {
   return (
     <AppWrapper>
-      <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
-      >
-        <meta name="description" content="A React.js Boilerplate application" />
+      <Helmet titleTemplate="%s" defaultTitle="Yeux">
+        <meta
+          name="description"
+          content="Yeux have big goals and we want to help you achieve them. We design and develop websites, mobile apps, social media automations and any other techincal solution you might need. Our goal is to support small minority-owned business using our expertise in web development, mobile app development, logo designs, SEO, marketing, and social media. Let us help yeux."
+        />
       </Helmet>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
+        <Route component={NoMatch} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
       <GlobalStyle />
     </AppWrapper>
   );

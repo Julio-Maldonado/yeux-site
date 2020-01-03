@@ -15,7 +15,12 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from './constants';
+import {
+  LOAD_REPOS,
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS_ERROR,
+  SWITCH_ROUTE_ID,
+} from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -55,5 +60,19 @@ export function repoLoadingError(error) {
   return {
     type: LOAD_REPOS_ERROR,
     error,
+  };
+}
+
+/**
+ * Dispatched when loading the repositories fails
+ *
+ * @param  {string} routeId The new routeId
+ *
+ * @return {object}       An action object with the new routeId
+ */
+export function switchRouteId(routeId) {
+  return {
+    type: SWITCH_ROUTE_ID,
+    routeId,
   };
 }
