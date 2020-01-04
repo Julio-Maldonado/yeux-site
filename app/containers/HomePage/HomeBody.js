@@ -22,12 +22,12 @@ const HomeBodyWrapper = styled.div`
   flex-direction: column;
 `;
 
-const CardWrapper = styled.div`
-  flex: 1;
-  flex-direction: row;
-  // text-align: left;
-  // width: 90vw;
-`;
+// const CardWrapper = styled.div`
+//   flex: 1;
+//   flex-direction: row;
+//   // text-align: left;
+//   // width: 90vw;
+// `;
 
 class HomeBody extends React.Component {
   state = {
@@ -68,22 +68,22 @@ class HomeBody extends React.Component {
   render() {
     const { height, width } = this.state;
     let [maxHeight, maxWidth] = [height, width];
-    let [cardHeight, cardWidth] = [height, width];
-    let [cardMarginLeft, cardMarginRight] = [0, 0];
+    let [cardWidth] = [height, width];
+    // let [cardMarginLeft, cardMarginRight] = [height, width];
     let pastWorkWidth = width;
     // let pastWorkWidthLeftMargin = 0;
-    const flag = true;
+    // const flag = true;
     // large screens (full screen)
     if (width > 1200) {
       maxHeight -= 150;
       maxWidth -= 150;
       // cardWidth = width * 0.4;
       cardWidth = width * 1;
-      cardHeight = height * 0.2;
+      // cardHeight = height * 0.2;
       // cardMarginLeft = width * 0.3;
       // cardMarginRight = width * 0.3;
-      cardMarginLeft = width * 0.0;
-      cardMarginRight = width * 0.0;
+      // cardMarginLeft = width * 0.0;
+      // cardMarginRight = width * 0.0;
       pastWorkWidth = width * 0.5;
     } // medium screens
     else if (width > 992) {
@@ -96,9 +96,9 @@ class HomeBody extends React.Component {
       maxHeight = height;
       maxWidth = width * 1.5;
       cardWidth = width * 1;
-      cardHeight = height * 0.2;
-      cardMarginLeft = width * 0.0;
-      cardMarginRight = width * 0.0;
+      // cardHeight = height * 0.2;
+      // cardMarginLeft = width * 0.0;
+      // cardMarginRight = width * 0.0;
       pastWorkWidth = width * 0.55;
     }
     return (

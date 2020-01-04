@@ -9,15 +9,15 @@ import AnalyticsIcon from './images/real_time_analytics_v2.png';
 import CrossPlatformIcon from './images/cross_platform_friendly_v2.png';
 import RelevantDesignsIcons from './images/relevant_designs_v3.png';
 
-const ServiceWrapper = styled.div`
-  display: flex;
-  height: ${props => props.height / 3};
-  // flex-direction: row;
-  // justify-content: space-around;
-  // align-content: center;
-  // justify-content: center;
-  align-items: center;
-`;
+// const ServiceWrapper = styled.div`
+//   display: flex;
+//   height: ${props => props.height / 3};
+//   // flex-direction: row;
+//   // justify-content: space-around;
+//   // align-content: center;
+//   // justify-content: center;
+//   align-items: center;
+// `;
 
 // const ServiceImageWrapper = styled.div`
 //   align-items: center;
@@ -39,7 +39,7 @@ const SectionWrapper = styled.div`
   padding-top: 5vh;
 `;
 
-const Services = ({ id, height, maxHeight, maxWidth, cardWidth }) => (
+const Services = ({ id, height, maxHeight, cardWidth }) => (
   <SectionWrapper id={id}>
     <div style={{ textAlign: 'center' }}>
       <H2 color="#F2F2F2">Some of our Services</H2>
@@ -224,7 +224,7 @@ Services.propTypes = {
   id: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   maxHeight: PropTypes.number.isRequired,
-  maxWidth: PropTypes.number,
+  // maxWidth: PropTypes.number,
   cardWidth: PropTypes.number.isRequired,
 };
 

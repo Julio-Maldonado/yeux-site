@@ -21,7 +21,7 @@ import HomePage from 'containers/HomePage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
-const NoMatch = ({ location }) => (
+const NoMatch = () => (
   <div>
     {/* <img src={PageNotFound} style={{width: 400, height: 400, display: 'block', margin: 'auto', position: 'relative' }} /> */}
     <center>

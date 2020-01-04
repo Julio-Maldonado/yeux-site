@@ -20,7 +20,7 @@ const SectionBody = styled.div`
   margin-right: auto;
 `;
 
-const AboutUs = ({ id, height, width, maxHeight, maxWidth }) => (
+const AboutUs = ({ id, height, maxHeight, maxWidth }) => (
   <SectionWrapper id={id}>
     <CenteredSection height={height}>
       <H2 color="#F2F2F2">
@@ -54,7 +54,7 @@ const AboutUs = ({ id, height, width, maxHeight, maxWidth }) => (
 AboutUs.propTypes = {
   id: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
-  width: PropTypes.number,
+  // width: PropTypes.number,
   maxHeight: PropTypes.number.isRequired,
   maxWidth: PropTypes.number.isRequired,
 };

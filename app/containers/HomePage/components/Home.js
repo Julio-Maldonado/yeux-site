@@ -26,7 +26,7 @@ const SectionBody = styled.div`
   margin-right: auto;
 `;
 
-const Home = ({ id, width, height, maxHeight, maxWidth }) => (
+const Home = ({ id, maxHeight, maxWidth }) => (
   <SectionWrapper id={id}>
     <Helmet>
       <title>Yeux</title>
@@ -83,8 +83,8 @@ const Home = ({ id, width, height, maxHeight, maxWidth }) => (
 
 Home.propTypes = {
   id: PropTypes.string.isRequired,
-  height: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired,
+  // height: PropTypes.number.isRequired,
+  // width: PropTypes.number.isRequired,
   maxHeight: PropTypes.number.isRequired,
   maxWidth: PropTypes.number.isRequired,
 };

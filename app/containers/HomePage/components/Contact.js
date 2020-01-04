@@ -13,10 +13,10 @@ import CenteredSection from './CenteredSection';
 import YeuxLogo from './images/Yeux_50px_v2.png';
 
 const sendEmail = async ({ name, emailAddress, subject, message }) => {
-  console.log({ name });
-  console.log({ emailAddress });
-  console.log({ subject });
-  console.log({ message });
+  // console.log({ name });
+  // console.log({ emailAddress });
+  // console.log({ subject });
+  // console.log({ message });
   try {
     const resp = await fetch(
       'https://blooming-beyond-72124.herokuapp.com/api/send_email',
@@ -32,7 +32,7 @@ const sendEmail = async ({ name, emailAddress, subject, message }) => {
 
     return resp.json();
   } catch (e) {
-    console.error(e);
+    // console.error(e);
     return { success: false };
   }
 };

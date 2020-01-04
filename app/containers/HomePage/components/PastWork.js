@@ -71,62 +71,67 @@ const PASTWORKS = [
   },
 ];
 
-const MenuItem = ({ pastWork, selected, newWidth, pastWorkWidth }) => {
-  return (
-    <div
-      style={{
-        border: 'solid 1px',
-        width: pastWorkWidth,
-        margin: 0,
-        marginRight: '5vw',
-        marginLeft: '5vw',
-        padding: 0,
-      }}
-    >
-      <div style={{ marginLeft: '1vw' }}>
-        <H2 className="no-margin" style={{ marginBottom: '1vh' }}>
-          {pastWork.title}
-        </H2>
-        <h4 className="no-margin" style={{ marginBottom: '1vh' }}>
-          {pastWork.startDate}
-        </h4>
-        <h6 className="no-margin" style={{ marginBottom: '1vh' }}>
-          Project length: {pastWork.projectLength}
-        </h6>
-      </div>
-      <div className="zoom">
-        <Img
-          src={newWidth < 700 ? pastWork.mobileImage : pastWork.image}
-          alt="Website image"
-          style={{
-            maxWidth: pastWorkWidth,
-            width: 'auto',
-            height: 'auto',
-            marginBottom: '1vh',
-          }}
-        />
-      </div>
-      <div style={{ marginLeft: '1vw' }}>
-        <h4 className="no-margin" style={{ marginBottom: '1vh' }}>
-          {pastWork.subtitle}
-        </h4>
-        <div
-          style={{
-            width: '50vw',
-            wordWrap: 'break-word',
-            // overflow: 'auto',
-            wordBreak: 'break-all',
-          }}
-        >
-          <i className="no-margin">{pastWork.description}</i>
-        </div>
-        <br />
-        <a href={pastWork.url} target="_blank" className="no-margin">
-          Visit site
-        </a>
-      </div>
+const MenuItem = ({ pastWork, newWidth, pastWorkWidth }) => (
+  <div
+    style={{
+      border: 'solid 1px',
+      width: pastWorkWidth,
+      margin: 0,
+      marginRight: '5vw',
+      marginLeft: '5vw',
+      padding: 0,
+    }}
+  >
+    <div style={{ marginLeft: '1vw' }}>
+      <H2 className="no-margin" style={{ marginBottom: '1vh' }}>
+        {pastWork.title}
+      </H2>
+      <h4 className="no-margin" style={{ marginBottom: '1vh' }}>
+        {pastWork.startDate}
+      </h4>
+      <h6 className="no-margin" style={{ marginBottom: '1vh' }}>
+        Project length: {pastWork.projectLength}
+      </h6>
     </div>
-  );
+    <div className="zoom">
+      <Img
+        src={newWidth < 700 ? pastWork.mobileImage : pastWork.image}
+        alt="Website image"
+        style={{
+          maxWidth: pastWorkWidth,
+          width: 'auto',
+          height: 'auto',
+          marginBottom: '1vh',
+        }}
+      />
+    </div>
+    <div style={{ marginLeft: '1vw' }}>
+      <h4 className="no-margin" style={{ marginBottom: '1vh' }}>
+        {pastWork.subtitle}
+      </h4>
+      <div
+        style={{
+          width: '50vw',
+          wordWrap: 'break-word',
+          // overflow: 'auto',
+          wordBreak: 'break-all',
+        }}
+      >
+        <i className="no-margin">{pastWork.description}</i>
+      </div>
+      <br />
+      <a href={pastWork.url} target="_blank" className="no-margin">
+        Visit site
+      </a>
+    </div>
+  </div>
+);
+
+MenuItem.propTypes = {
+  pastWorkWidth: PropTypes.number,
+  pastWork: PropTypes.object,
+  // selected: PropTypes.string,
+  newWidth: PropTypes.number,
 };
 
 export const Menu = (list, selected, width, pastWorkWidth) =>
@@ -160,7 +165,7 @@ const SectionWrapper = styled.div`
 `;
 
 class PastWork extends React.Component {
-  state = { selected, translate: 0 };
+  state = { selected };
 
   translateCounter = 1;
 
@@ -171,17 +176,22 @@ class PastWork extends React.Component {
   render() {
     const {
       id,
-      height,
+      // height,
       width,
-      maxHeight,
-      maxWidth,
-      cardWidth,
+      // maxHeight,
+      // maxWidth,
+      // cardWidth,
       pastWorkWidth,
     } = this.props;
-    console.log({ pastWorkWidth });
-    console.log("width * 0.5 =", width * 0.5);
-    const menuItems = Menu(PASTWORKS, selected, width, pastWorkWidth);
-    const { selected } = this.state;
+    // console.log({ pastWorkWidth });
+    // console.log("width * 0.5 =", width * 0.5);
+    // const {selected} = this.state;
+    const menuItems = Menu(
+      PASTWORKS,
+      this.state.selected,
+      width,
+      pastWorkWidth,
+    );
     const menu = menuItems;
 
     return (
@@ -216,11 +226,11 @@ class PastWork extends React.Component {
 
 PastWork.propTypes = {
   id: PropTypes.string.isRequired,
-  height: PropTypes.number.isRequired,
+  // height: PropTypes.number.isRequired,
   width: PropTypes.number.isRequired,
-  maxHeight: PropTypes.number.isRequired,
-  maxWidth: PropTypes.number.isRequired,
-  cardWidth: PropTypes.number,
+  // maxHeight: PropTypes.number.isRequired,
+  // maxWidth: PropTypes.number.isRequired,
+  // cardWidth: PropTypes.number,
   pastWorkWidth: PropTypes.number,
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import H2 from 'components/H2';
 import H3 from 'components/H3';
@@ -15,10 +15,8 @@ const Welcome = ({ id, height, width, maxHeight, maxWidth }) => (
       flexDirection: 'column',
       padding: 0,
       // paddingTop: '5vh',
-      width: width * 0.5,
+      width: width * 0.98,
       maxWidth: '100vw',
-      // margin: 0,
-      width: '98vw',
       margin: '0 auto',
     }}
   >
