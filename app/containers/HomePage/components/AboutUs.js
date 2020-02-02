@@ -20,43 +20,65 @@ const SectionBody = styled.div`
   margin-right: auto;
 `;
 
-const AboutUs = ({ id, height, maxHeight, maxWidth }) => (
-  <SectionWrapper id={id}>
-    <CenteredSection height={height}>
-      <H2 color="#F2F2F2">
-        Yeux have a story to share, a service to provide, a product to sell, and
-        a community to build.
-      </H2>
-      <H3 style={{ color: '#F2F2F2' }}>
-        We make beautiful website that land you clients.
-      </H3>
-      <Img
-        src={WelcomeDesign}
-        alt="Story_Design_Yeux_v1"
-        style={{
-          maxHeight,
-          maxWidth: maxWidth * 0.55,
-          width: 'auto',
-          height: 'auto',
-        }}
-      />
-      <SectionBody>
-        <h4 style={{ color: '#F2F2F2' }}>
-          We have expertise in web development and design, logo making, SEO,
-          entrepreneurship, small businesses, startups, community building, and
-          marketing that we want to use to support you and your goals.
-        </h4>
-      </SectionBody>
-    </CenteredSection>
-  </SectionWrapper>
-);
+const AboutUs = ({ id, width, height, screenState }) => {
+  let imageMaxWidth = 0;
+  let paddingTop = '';
+  if (screenState === 'wide') {
+    imageMaxWidth = width * 0.55;
+    paddingTop = '5vh';
+  } else if (screenState === 'full') {
+    imageMaxWidth = width * 0.45;
+    paddingTop = '5vh';
+  } else if (screenState === 'pacman') {
+    imageMaxWidth = width * 0.65;
+    paddingTop = '5vh';
+  } else if (screenState === 'half') {
+    imageMaxWidth = width * 0.85;
+    paddingTop = '7.5vh';
+  } else if (screenState === 'mobile') {
+    imageMaxWidth = width * 1;
+    paddingTop = '5vh';
+  }
+
+  return (
+    <SectionWrapper id={id} paddingTop={paddingTop}>
+      <CenteredSection height={height}>
+        <H2 color="black">
+          Yeux have a story to share, a service to provide, a product to sell,
+          and a community to build.
+        </H2>
+        <H3 color="black">
+          We make beautiful websites that support your goals.
+        </H3>
+        <Img
+          className="no-margin"
+          src={WelcomeDesign}
+          alt="Story_Design_Yeux_v1"
+          style={{
+            maxHeight: height,
+            maxWidth: imageMaxWidth,
+            width: 'auto',
+            height: 'auto',
+          }}
+        />
+        <SectionBody>
+          <h4 style={{ color: 'black' }}>
+            We have expertise in web development and design, graphic design,
+            SEO, app development, small businesses development, startups,
+            community building, and marketing that we want to use to support you
+            and your goals.
+          </h4>
+        </SectionBody>
+      </CenteredSection>
+    </SectionWrapper>
+  );
+};
 
 AboutUs.propTypes = {
   id: PropTypes.string.isRequired,
+  width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  // width: PropTypes.number,
-  maxHeight: PropTypes.number.isRequired,
-  maxWidth: PropTypes.number.isRequired,
+  screenState: PropTypes.string.isRequired,
 };
 
 export default AboutUs;

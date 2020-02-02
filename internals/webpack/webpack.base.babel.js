@@ -12,7 +12,7 @@ module.exports = options => ({
     {
       // Compile into js/build.js
       path: path.resolve(process.cwd(), 'build'),
-      publicPath: '/yeux-site/',
+      publicPath: '/yeux-tech-site/',
     },
     options.output,
   ), // Merge with env dependent settings

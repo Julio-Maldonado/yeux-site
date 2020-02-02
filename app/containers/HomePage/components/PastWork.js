@@ -185,10 +185,10 @@ class PastWork extends React.Component {
     } = this.props;
     // console.log({ pastWorkWidth });
     // console.log("width * 0.5 =", width * 0.5);
-    // const {selected} = this.state;
+    const {selected} = this.state;
     const menuItems = Menu(
       PASTWORKS,
-      this.state.selected,
+      selected,
       width,
       pastWorkWidth,
     );

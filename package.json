@@ -2,6 +2,7 @@
   "name": "react-boilerplate",
   "version": "4.0.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "homepage": "https://julio-maldonado.github.io/yeux-tech-site/",
   "repository": {
     "type": "git",
     "url": "git://github.com/react-boilerplate/react-boilerplate.git"
@@ -12,7 +13,6 @@
   },
   "author": "Max Stoiber",
   "license": "MIT",
-  "homepage": "https://julio-maldonado.github.io/yeux-site/",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
